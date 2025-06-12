@@ -1,0 +1,11 @@
+.video-wrapper {
+  display: flex;
+  gap: 1rem;
+  margin-top: 20px;
+}
+video {
+  width: 300px;
+  height: 200px;
+  background-color: black;
+  border: 1px solid #ccc;
+}

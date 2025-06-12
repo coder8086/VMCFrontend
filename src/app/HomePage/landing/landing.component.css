@@ -1,0 +1,36 @@
+.video-call-buttons {
+ display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  height: 100vh; /* full height */
+}
+
+.call-btn {
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.call-btn.start {
+  background-color: #007bff;
+}
+
+.call-btn.join {
+  background-color: #28a745;
+}
+
+.call-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.call-btn:active {
+  transform: scale(0.98);
+}

@@ -1,0 +1,15 @@
+<h3>Your Peer ID: {{ peerService.getPeerId() }}</h3>
+
+<div class="controls" *ngIf="callActive">
+  <button (click)="toggleMic()">
+    {{ micOn ? 'Mute Mic' : 'Unmute Mic' }}
+  </button>
+  <button (click)="endCall()">End Call</button>
+</div>
+
+<div class="video-wrapper">
+  <video id="localVideo" autoplay muted></video>
+  <video id="remoteVideo" autoplay></video>
+</div>
+
+

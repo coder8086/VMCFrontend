@@ -1,0 +1,16 @@
+<input [(ngModel)]="remotePeerId" placeholder="Enter Receiver ID" />
+<button (click)="callPeer()" [disabled]="callActive">Call</button>
+
+<div class="controls" *ngIf="callActive">
+  <button (click)="toggleMic()">
+    {{ micOn ? 'Mute Mic' : 'Unmute Mic' }}
+  </button>
+  <button (click)="endCall()">End Call</button>
+</div>
+
+<div class="video-wrapper">
+  <video id="localVideo" autoplay muted></video>
+  <video id="remoteVideo" autoplay></video>
+</div>
+
+
