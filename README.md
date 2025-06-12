@@ -1,3 +1,6 @@
+VMCFrontend 
+VMCFrontend means Video Medical Consultation Frontend this app is regarding to medical project which provide consumer a medical consulatation online at his home. Using this app consumer as patient or his family member can take consultation online or book appoientment by online.
+
 # VideoCallApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.12.
