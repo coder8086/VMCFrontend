@@ -1,5 +1,214 @@
-<div class="video-call-buttons">
-  <button class="call-btn start" (click)="startVideoCall()">Join Video Call</button>
-  <button class="call-btn join" (click)="joinVideoCall()">Create Video Call</button>
-</div>
+<app-navbar></app-navbar>
 
+<section class="hero">
+  <div class="container hero-content">
+    <div class="text">
+      <h1>Quality Care You Deserve<br><span>Just a Click Away.</span></h1>
+      <p>We combine compassionate care with the latest medical <br>
+        advancements to support your well-being at every stage. <br>
+        Whether it's a routine checkup or specialized treatment, our <br>
+        dedicated team is here to guide you with personalized,<br>
+        trustworthy healthcare you can rely on.</p>
+      <button class="primery" (click)="startVideoCall()">Start Instant Consultation</button>
+      <button class="secondary">Book appointment</button>
+    </div>
+    <div class="image">
+      <img src="../../../assets/LandingImage/hero-image.JPG" alt="Doctors" width=550 height=500>
+    </div>
+  </div>
+</section>
+
+<section class="landingDashboard">
+
+  <div class="image-section">
+    <img src="../../../assets/LandingImage/team.JPG" alt="Doctors Team" />
+  </div>
+  <div class="content-section">
+    <div class="text-box">
+      <h2>Where Care meets Expertise</h2>
+      <p>
+        placerat efficitur. massa adipiscing ultrices Morbi commodo varius
+        adipiscing commodo dui in nisi odio vel quis Nam dolor
+      </p>
+      <p>
+        sapien Nunc placerat tempor Nunc Nunc Donec ac luctus cursus vitae ex
+        urna faucibus tincidunt maximus orci adipiscing est.
+      </p>
+      <button>View All</button>
+    </div>
+    <div class="stats-box">
+      <div class="stat yellow">
+        <h3>100K+</h3>
+        <p>Satisfied Customers</p>
+      </div>
+      <div class="stat blue">
+        <h3>12+</h3>
+        <p>Years of Experience</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="services container">
+  <div class="title_service">
+    <div class="text-service">
+      <h1>Expert Medical Care For You and Your Dear Ones</h1>
+    </div>
+    <div>
+      <p>We offer a range of trusted healthcare services diesigned to meet the unique needs of every family member.</p>
+      <button class="secondary">View more</button>
+    </div>
+
+  </div>
+
+  <div class="cards">
+    <div class="card yellow"><img src="../../../assets/logos/helthcare.JPG" alt="logo" width="170" height="170" />
+      General Health Check-Ups</div>
+    <div class="card pink"><img src="../../../assets/logos/treatment.JPG" alt="logo" width="170" height="170" />Cardiac
+      Assessment</div>
+    <div class="card aqua"><img src="../../../assets/logos/women.JPG" alt="logo" width="170" height="170" />Women's
+      Health</div>
+    <div class="card green"><img src="../../../assets/logos/pediac.JPG" alt="logo" width="170" height="170" />Pediatric
+      Treatment</div>
+    <div class="card blue"><img src="../../../assets/logos/bloodtest.JPG" alt="logo" width="170" height="170" />Diabetes
+      Management</div>
+    <div class="card purple"><img src="../../../assets/logos/vacination.JPG" alt="logo" width="170"
+        height="170" />Vaccines & Protection</div>
+  </div>
+</section>
+
+<section class="team-section">
+  <h1>Meet Our Expert Medical Team</h1>
+  <h2>Of Dedicated Specialist</h2>
+  <div class="specialist-buttons">
+    <button>Pediatrics</button>
+    <button class="active">Orthopedics</button>
+    <button>Dieticians</button>
+    <button>Cardiology</button>
+    <button>Dermatology</button>
+    <button>Urology</button>
+  </div>
+  <div class="doctor-cards">
+    <div class="doctor-card">
+      <img src="../../../assets/DoctorPhoto/Dotor1.JPG" alt="Doctor 1" />
+    </div>
+    <div class="doctor-card">
+      <img src="../../../assets/DoctorPhoto/Doctor2.JPG" alt="Doctor 2" />
+    </div>
+    <div class="doctor-card">
+      <img src="../../../assets/DoctorPhoto/Doctor3.JPG" alt="Doctor 3" />
+    </div>
+    <div class="doctor-card">
+      <img src="../../../assets/DoctorPhoto/Doctor2.JPG" alt="Doctor 4" />
+    </div>
+    <div class="doctor-card">
+      <img src="../../../assets/DoctorPhoto/Dotor1.JPG" alt="Doctor 5" />
+    </div>
+  </div>
+</section>
+
+<section class="testimonial-section">
+  <div class="header">
+    <h1>What Our Patients Say About Us</h1>
+    <a href="#" class="view-more">View More</a>
+  </div>
+
+  <div class="testimonials">
+    <!-- Card 1 -->
+    <div class="testimonial-card green">
+      <div class="profile">
+        <img src="https://i.pravatar.cc/80" alt="user image" />
+        <div class="name">Hari Shekhavat</div>
+      </div>
+      <div class="stars">⭐ ⭐ ⭐ ⭐ ☆</div>
+      <p class="review">
+        I had an excellent experience. From the moment I arrived, the staff made me feel comfortable and well-cared for.
+        The doctors were not only highly knowledgeable but also took the time to explain everything clearly and
+        patiently.
+      </p>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="testimonial-card pink">
+      <div class="profile">
+        <div class="initial">A</div>
+        <div class="name">Hari Shekhavat</div>
+      </div>
+      <div class="stars">⭐ ⭐ ⭐ ⭐ ☆</div>
+      <p class="review">
+        I had an excellent experience. From the moment I arrived, the staff made me feel comfortable and well-cared for.
+        The doctors were not only highly knowledgeable but also took the time to explain everything clearly and
+        patiently.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <h2>FAQ’s</h2>
+
+  <div class="accordion">
+    <!-- Item 1 -->
+    <div class="accordion-item active">
+      <button class="accordion-header">
+        What Service does Medcure offer?
+        <span class="arrow">▴</span>
+      </button>
+      <div class="accordion-body">
+        Medcure offers a comprehensive range of healthcare services designed to provide quality, patient-centered care.
+        These include general and specialist consultations, diagnostic services, preventive health checkups, advanced
+        imaging and pathology, outpatient and inpatient care, minor and major surgeries, emergency services, and
+        pharmacy support.
+      </div>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="accordion-item">
+      <button class="accordion-header">
+        How to book a doctor’s appointment?
+        <span class="arrow">▾</span>
+      </button>
+      <div class="accordion-body">
+        You can book an appointment through our website, mobile app, or by calling our reception directly.
+      </div>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="accordion-item">
+      <button class="accordion-header">
+        What are your clinic hours?
+        <span class="arrow">▾</span>
+      </button>
+      <div class="accordion-body">
+        Our clinic operates from 8:00 AM to 8:00 PM, Monday through Saturday.
+      </div>
+    </div>
+
+    <!-- Item 4 -->
+    <div class="accordion-item">
+      <button class="accordion-header">
+        Do I need a referral to see a specialist?
+        <span class="arrow">▾</span>
+      </button>
+      <div class="accordion-body">
+        No referral is needed to see most of our specialists; however, some insurance providers may require one.
+      </div>
+    </div>
+
+    <!-- Item 5 -->
+    <div class="accordion-item">
+      <button class="accordion-header">
+        Are there any health insurances you provide?
+        <span class="arrow">▾</span>
+      </button>
+      <div class="accordion-body">
+        Yes, we accept most major health insurance plans. Please contact our office for more details.
+      </div>
+    </div>
+  </div>
+</section>
+
+<img src="../../../assets/LandingImage/footeimg.JPG" alt="footerimg" width="100%" />
+
+<app-footer></app-footer>

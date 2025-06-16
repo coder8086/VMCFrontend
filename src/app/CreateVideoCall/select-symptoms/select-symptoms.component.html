@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+<div class="herosec2">
+    <h1>What is your helth issue ?</h1>
+    <img src="../../../assets/herosec2.jpg" alt="image" height="300" width="100%" />
+</div>
+<div class="SearchSymptoms">
+    <input type="text" placeholder="Search symptoms">
+</div>
+<div class="card-container">
+  <div class="appointment-card" *ngFor="let symptoms of symptomsList">
+    <h3>{{symptoms.icon }}</h3>
+    <p>{{ symptoms.name }}</p>
+  </div>
+</div>
+
+<app-footer></app-footer>
+
