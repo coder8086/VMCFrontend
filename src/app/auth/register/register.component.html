@@ -1,0 +1,54 @@
+<!-- <app-navbar></app-navbar> -->
+<section class="register-block">
+  <div class="glass-container">
+    <div class="medical-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#0069c0" viewBox="0 0 24 24">
+        <path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/>
+      </svg>
+      <h2 class="text-center">Medical Portal Registration</h2>
+    </div>
+    <form class="register-form" action="" #f="ngForm" novalidate (ngSubmit)="f.form.valid&&onSubmit()">
+      <div class="form-group">
+        <label for="name" class="text-uppercase">Full Name</label>
+        <input type="text" class="form-control" name="name" id="name" [(ngModel)]="formdata.name" #name="ngModel" required>
+        <span class="text-danger" *ngIf="this.submit&&name.errors?.['required']">
+          Name is required
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="email" class="text-uppercase">Professional Email</label>
+        <input type="email" class="form-control" name="email" id="email" [(ngModel)]="formdata.email" #email="ngModel" required>
+        <span class="text-danger" *ngIf="this.submit&&email.errors?.['required']">
+          Email is required
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="password" class="text-uppercase">Secure Password</label>
+        <input type="password" class="form-control" name="password" id="password" [(ngModel)]="formdata.password" #password="ngModel" required minlength="8">
+        <span class="text-danger" *ngIf="this.submit&&password.errors?.['required']">
+          Password is required
+        </span>
+        <span class="text-danger" *ngIf="this.submit&&password.errors?.['minlength']">
+          Minimum 8 characters required
+        </span>
+      </div>
+      <div class="form-group">
+        <div class="text-center" *ngIf="this.loading">
+          <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+        <span class="text-danger" *ngIf="this.errorMessage">
+          <p [innerText]="this.errorMessage"></p>
+        </span>
+        <button type="submit" class="btn btn-register" (click)="submit=true" [disabled]="this.loading">
+          Register <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+      <div class="form-footer">
+        <p>Already have an account? <a href="javascript:void(0);" routerLink="/">Login here</a></p>
+        <p class="disclaimer">By registering, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></p>
+      </div>
+    </form>
+  </div>
+</section>

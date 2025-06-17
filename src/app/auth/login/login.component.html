@@ -1,0 +1,42 @@
+<!-- <app-navbar></app-navbar> -->
+<section class="login-block">
+  <div class="glass-container">
+    <div class="medical-icon">
+       <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#0069c0" viewBox="0 0 24 24">
+        <path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/>
+      </svg>
+      <h2 class="text-center">Medical Portal Registration</h2>
+    </div>
+
+    <form class="login-form" action="" #f="ngForm" novalidate (ngSubmit)="f.form.valid&&onSubmit()">
+      <div class="form-group">
+        <input type="email" class="form-control" name="email" placeholder="Email" [(ngModel)]="formdata.email" #email="ngModel" required>
+        <span class="text-danger" *ngIf="this.submit&&email.errors?.['required']">
+          Email is required
+        </span>
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="password" name="password" placeholder="Password" [(ngModel)]="formdata.password" #password="ngModel" required>
+        <span class="text-danger" *ngIf="this.submit&&password.errors?.['required']">
+          Password is required
+        </span>
+      </div>
+      <div class="form-options">
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="rememberMe">
+          <label class="form-check-label" for="rememberMe">Remember me</label>
+        </div>
+        <a href="#" class="forgot-password">Forgot password?</a>
+      </div>
+      <button type="submit" class="btn-login" [disabled]="this.loading" (click)="submit=true">
+        <span *ngIf="!this.loading">Login</span>
+        <div class="spinner-border spinner-border-sm" *ngIf="this.loading" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </button>
+      <div class="register-link">
+        Don't have an account? <a routerLink="/register">Sign up</a>
+      </div>
+    </form>
+  </div>
+</section>
