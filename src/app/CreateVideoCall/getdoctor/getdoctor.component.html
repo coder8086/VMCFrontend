@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+<div>
+    <h1>Get your doctor</h1>
+    <img src="../../../assets/chooseDoctor.jpg" alt="image" width="100%" height="300" />
+</div>
+<div class="card-container">
+  <div class="appointment-card" *ngFor="let doctor of doctorList">
+
+    <div (click)="startVideoCall()">
+      <img src="{{doctor.img }}" alt="img" />
+    <p>{{ doctor.name }}</p>
+    <p>{{doctor.speciality}}</p>
+    </div>
+    
+  </div>
+</div>
+<app-footer></app-footer>

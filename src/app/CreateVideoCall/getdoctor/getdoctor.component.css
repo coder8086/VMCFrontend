@@ -1,0 +1,18 @@
+.card-container {
+    width: 100%;
+    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 10px;
+}
+
+.appointment-card {
+  background-color: #e0f7fa;
+  border: 1px solid #b2ebf2;
+  padding: 16px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}

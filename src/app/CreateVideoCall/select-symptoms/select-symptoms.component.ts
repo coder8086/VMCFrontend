@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavbarComponent } from "../../Shared/navbar/navbar/navbar.component";
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from "../../Shared/footer/footer.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-select-symptoms',
@@ -34,5 +35,11 @@ export class SelectSymptomsComponent {
   { name: 'Joint Pain', icon: '🦴' },
   { name: 'Swelling', icon: '🦶' }
   ];
+
+  constructor(private router: Router){}
+
+  GetDoctor(){
+    this.router.navigate(['/getDoctor']);
+  }
 
 }

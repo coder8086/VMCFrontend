@@ -3,6 +3,8 @@ import { LandingComponent } from './HomePage/landing/landing.component';
 import { CallerComponent } from './VideoCall/caller/caller.component';
 import { ReciverComponent } from './VideoCall/reciver/reciver.component';
 import { SelectSymptomsComponent } from './CreateVideoCall/select-symptoms/select-symptoms.component';
+import { GetdoctorComponent } from './CreateVideoCall/getdoctor/getdoctor.component';
+import { DoctorDashboardComponent } from './Dashboards/Doctor/doctor-dashboard/doctor-dashboard.component';
 
 export const routes: Routes = [
     {
@@ -16,5 +18,11 @@ export const routes: Routes = [
     },
     {
         path:'selectSymptoms', component: SelectSymptomsComponent
+    },
+    {
+        path:'getDoctor' , component: GetdoctorComponent
+    },
+    {
+        path:'doctorDashboard', component: DoctorDashboardComponent
     }
 ];

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { VideoCallService } from '../../Services/video-call.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -10,8 +10,8 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './caller.component.html',
   styleUrl: './caller.component.css'
 })
-export class CallerComponent {
-  remotePeerId: string = '';
+export class CallerComponent implements OnInit{
+  remotePeerId: string='';
   localStream!: MediaStream;
 
   callActive: boolean = false;

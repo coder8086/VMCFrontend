@@ -1,4 +1,4 @@
-<input [(ngModel)]="remotePeerId" placeholder="Enter Receiver ID" />
+ <input [(ngModel)]="remotePeerId" placeholder="Enter Receiver ID" />
 <button (click)="callPeer()" [disabled]="callActive">Call</button>
 
 <div class="controls" *ngIf="callActive">
@@ -9,8 +9,8 @@
 </div>
 
 <div class="video-wrapper">
-  <video id="localVideo" autoplay muted></video>
-  <video id="remoteVideo" autoplay></video>
+  <video class="localVideo" id="localVideo" autoplay muted></video>
+  <video class="remoteVideo" id="remoteVideo" autoplay></video>
 </div>
 
 

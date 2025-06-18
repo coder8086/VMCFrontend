@@ -22,7 +22,6 @@ private currentCall: any;
   ngOnInit(): void {
   this.peerService.onCall(call => {
     this.currentCall = call;
-
     this.peerService.getUserMedia().then(stream => {
       this.localStream = stream;
       this.attachVideo('localVideo', stream);

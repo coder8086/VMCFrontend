@@ -8,8 +8,11 @@
 </div>
 <div class="card-container">
   <div class="appointment-card" *ngFor="let symptoms of symptomsList">
-    <h3>{{symptoms.icon }}</h3>
-    <p>{{ symptoms.name }}</p>
+    <div (click)="GetDoctor()">
+        <h3>{{symptoms.icon }}</h3>
+        <p>{{ symptoms.name }}</p>
+    </div>
+    
   </div>
 </div>
 
