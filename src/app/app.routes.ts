@@ -5,6 +5,8 @@ import { ReciverComponent } from './VideoCall/reciver/reciver.component';
 import { SelectSymptomsComponent } from './CreateVideoCall/select-symptoms/select-symptoms.component';
 import { GetdoctorComponent } from './CreateVideoCall/getdoctor/getdoctor.component';
 import { DoctorDashboardComponent } from './Dashboards/Doctor/doctor-dashboard/doctor-dashboard.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 export const routes: Routes = [
     {
@@ -24,5 +26,11 @@ export const routes: Routes = [
     },
     {
         path:'doctorDashboard', component: DoctorDashboardComponent
-    }
+    },
+  {
+    path: 'login', component:LoginComponent
+  },
+  {
+    path: 'register', component:RegisterComponent
+  }
 ];

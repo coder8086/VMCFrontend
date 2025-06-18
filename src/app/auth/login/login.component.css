@@ -1,0 +1,159 @@
+/* Add this to your component's CSS file */
+.login-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url('../../../assets/SignupBackground.png') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.login-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+.glass-container {
+  width: 100%;
+  max-width: 380px;
+  padding: 40px 30px;
+  background: rgba(239, 234, 234, 0.174);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  z-index: 1;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.medical-icon {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.medical-icon svg {
+  filter: drop-shadow(0 2px 4px rgba(0, 105, 192, 0.2));
+}
+
+h2 {
+  color: #0069c0;
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid rgba(0, 105, 192, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s;
+  font-size: 14px;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #0069c0;
+  box-shadow: 0 0 0 3px rgba(0, 105, 192, 0.1);
+}
+
+.text-danger {
+  color: #e63946;
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  font-size: 13px;
+}
+
+.forgot-password {
+  color: #0069c0;
+  text-decoration: none;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 12px;
+  background: #0069c0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 105, 192, 0.1);
+}
+
+.btn-login:hover {
+  background: #0057a8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 105, 192, 0.15);
+}
+
+.btn-login:active {
+  transform: translateY(0);
+}
+
+.divider {
+  position: relative;
+  margin: 20px 0;
+  text-align: center;
+  color: #6c757d;
+  font-size: 12px;
+}
+
+.divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: -1;
+}
+
+.divider span {
+  background: white;
+  padding: 0 10px;
+}
+
+.register-link {
+  text-align: center;
+  font-size: 13px;
+  color: #6c757d;
+}
+
+.register-link a {
+  color: #0069c0;
+  text-decoration: none;
+  font-weight: 500;
+}
