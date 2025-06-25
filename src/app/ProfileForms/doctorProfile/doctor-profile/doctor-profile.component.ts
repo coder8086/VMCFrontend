@@ -38,7 +38,7 @@ export class DoctorProfileComponent {
 
            alert(response.message);
 
-        this.router.navigate(['']);
+        this.router.navigate(['/doctorLanding']);
 
       }, 
       error: (error) => {

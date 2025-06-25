@@ -53,10 +53,13 @@ export class LoginComponent{
       next: (data) => {
         
         localStorage.setItem('firstName',data.firstName);
+     
 
       switch(data.role){
         case "DOCTOR": 
-          if(!data.isProfileCreated){
+          if(data.isProfileCreated){
+            this.router.navigate(['/doctorLanding']);
+          }else{
             this.router.navigate(['/doctorProfile']);
           }
         break;
