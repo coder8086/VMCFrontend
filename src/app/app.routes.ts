@@ -7,6 +7,10 @@ import { GetdoctorComponent } from './CreateVideoCall/getdoctor/getdoctor.compon
 import { DoctorDashboardComponent } from './Dashboards/Doctor/doctor-dashboard/doctor-dashboard.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { routegardGuard } from './RouteGard/routegard.guard';
+import { DoctorLandingComponent } from './HomePage/doctor-landing/doctor-landing.component';
+import { DoctorProfileComponent } from './ProfileForms/doctorProfile/doctor-profile/doctor-profile.component';
 
 export const routes: Routes = [
     {
@@ -19,10 +23,10 @@ export const routes: Routes = [
         path:'reciver', component:ReciverComponent
     },
     {
-        path:'selectSymptoms', component: SelectSymptomsComponent
+        path:'selectSymptoms', component: SelectSymptomsComponent, canActivate:[routegardGuard]
     },
     {
-        path:'getDoctor' , component: GetdoctorComponent
+        path:'getDoctor' , component: GetdoctorComponent, canActivate:[routegardGuard]
     },
     {
         path:'doctorDashboard', component: DoctorDashboardComponent
@@ -31,6 +35,12 @@ export const routes: Routes = [
     path: 'login', component:LoginComponent
   },
   {
-    path: 'register', component:RegisterComponent
+    path: 'register', component:SigninComponent
+  },
+  {
+    path: 'doctorLanding',component: DoctorLandingComponent
+  },
+  {
+    path: 'doctorProfile', component:DoctorProfileComponent
   }
 ];

@@ -11,8 +11,8 @@
         <li><a href="#">Find Doctors</a></li>
         <li><a href="#">Blog</a></li>
         <li><a href="#">Help</a></li>
-        <li><a href="#">Login</a></li>
-        <li><a href="#" class="contact-btn">Contact Us</a></li>
+        <li><a href="#">Contact us</a></li>
+         <button class="contact-btn" (click)='isLogin ? logout() : login()'>{{isLogin ? 'log out' : 'login'}}</button>
       </ul>
     </nav>
   </div>

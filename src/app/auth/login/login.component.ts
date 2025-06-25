@@ -1,46 +1,81 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../_services/auth.service';
+import { Router, RouterLink } from '@angular/router';
+import { User } from '../../Models/user';
+import { Authrequest } from '../../Models/authrequest';
+import { FormsModule } from '@angular/forms';
+import { LoginService } from '../../Services/auth/login.service';
+import { GetUserService } from '../../Services/auth/get-user.service';
+
 
 @Component({
   selector: 'app-login',
+   standalone: true,
+  imports: [RouterLink,FormsModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent{
 
-  formdata = {email:"",password:""};
-  submit=false;
-  loading=false;
-  errorMessage="";
-  constructor(private auth:AuthService) { }
-
-  ngOnInit(): void {
-    this.auth.canAuthenticate();
+  auth:Authrequest={
+    username:'',
+    password:''
   }
 
-  onSubmit(){
-    this.loading=true;
-    //call login service
-    this.auth.login(this.formdata.email,this.formdata.password)
-    .subscribe({
-        next:data=>{
-            //store token
-            this.auth.storeToken(data.idToken);
-            console.log('logged user token is '+data.idToken);
-            this.auth.canAuthenticate();
-        },
-        error:data=>{
-            if (data.error.error.message=="INVALID_PASSWORD" || data.error.error.message=="INVALID_EMAIL") {
-                this.errorMessage = "Invalid Credentials!";
-            } else{
-                this.errorMessage = "Unknown error when logging into this account!";
-            }
-        }
-    }).add(()=>{
-        this.loading =false;
-        console.log('login process completed!');
+  constructor(private authService:LoginService,private getUser:GetUserService, private router:Router){
+  }
 
-    })
+  login(){
+
+   
+    if (this.auth.username && this.auth.password) {
+      this.authService.login(this.auth).subscribe({
+        next: (res: string) => {
+  alert('Login Successful!');
+  localStorage.setItem('token', res); // `res` is already the token string
+  this.fetchUser();
+},
+        error: (error) => {
+          console.error('Login failed:', error);
+          alert('Invalid credentials, please try again.');
+        }
+      });
+
+    } 
+    else
+     {
+      alert('Please fill in all fields.');
+    }
+    
+  }
+
+    fetchUser(): void {
+    this.getUser.getUserById().subscribe({
+      next: (data) => {
+        
+        localStorage.setItem('firstName',data.firstName);
+
+      switch(data.role){
+        case "DOCTOR": 
+          if(!data.isProfileCreated){
+            this.router.navigate(['/doctorProfile']);
+          }
+        break;
+        
+        case "PATIENT":
+          this.router.navigate(['']);
+        break;
+        
+        default:
+          console.log("Invalid role");
+        break;
+
+      }
+
+      },
+      error: (err) => {
+      console.log("fail to get user "+err);
+      }
+    });
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VideoCallService } from '../../Services/video-call.service';
 import { CommonModule } from '@angular/common';
+import { GetUserService } from '../../Services/auth/get-user.service';
 
 @Component({
   selector: 'app-reciver',
@@ -16,10 +17,27 @@ micOn: boolean = true;
 localStream!: MediaStream;
 private currentCall: any;
 
+peerid:string = '';
 
-  constructor(public peerService: VideoCallService) {}
+
+
+
+  constructor(public peerService: VideoCallService,private getUser: GetUserService) {}
 
   ngOnInit(): void {
+
+
+    const checkPeerReady = setInterval(() => {
+
+    const genPeerId = this.peerService.getPeerId();
+
+    if(genPeerId){
+
+      this.peerid = genPeerId;
+       clearInterval(checkPeerReady);
+       this.saveLink(); 
+    }
+
   this.peerService.onCall(call => {
     this.currentCall = call;
     this.peerService.getUserMedia().then(stream => {
@@ -37,6 +55,8 @@ private currentCall: any;
       });
     });
   });
+
+  }, 500);
 }
 
 toggleMic() {
@@ -70,5 +90,25 @@ endCall() {
     const video = document.getElementById(id) as HTMLVideoElement;
     video.srcObject = stream;
     video.play();
+  }
+
+  saveLink(){
+
+    this.fetchUser();
+
+  }
+
+      fetchUser(): void {
+    this.getUser.getUserById().subscribe({
+      next: (data) => {
+        
+        localStorage.setItem('firstName',data.firstName);
+
+        alert(data.firstName);
+      },
+      error: (err) => {
+      console.log("fail to get user "+err);
+      }
+    });
   }
 }

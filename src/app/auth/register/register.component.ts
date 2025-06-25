@@ -1,57 +1,53 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../_services/auth.service';
+import { Component} from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+import { User } from '../../Models/user';
+import { FormsModule } from '@angular/forms';
+import { RegisterService } from '../../Services/auth/register.service';
 
 @Component({
   selector: 'app-register',
+  standalone: true,
+  imports:[RouterLink,FormsModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent  {
 
-  formdata = {name:"",email:"",password:""};
-  submit=false;
-  errorMessage="";
-  loading=false;
-
-  constructor(private auth:AuthService) { }
-
-  ngOnInit(): void {
-    this.auth.canAuthenticate();
+  user:User ={
+    firstName:'',
+    lastName:'',
+    username:'',
+    password:'',
+    role:'',
+    isProfileCreated:false
   }
 
-  onSubmit(){
+  constructor(private router:Router, private authService:RegisterService){}
 
-      this.loading=true;
+  signin(){
 
-      //call register service
-      this.auth
-      .register(this.formdata.name,this.formdata.email,this.formdata.password)
-      .subscribe({
-          next:data=>{
-              //store token from response data
-              this.auth.storeToken(data.idToken);
-              console.log('Registered idtoken is '+data.idToken);
-              this.auth.canAuthenticate();
+      if(
+      this.user.firstName && this.user.lastName && this.user.username && this.user.password
+    ){
+      
 
-          },
-          error:data=>{
-              if (data.error.error.message=="INVALID_EMAIL") {
+    this.authService.register(this.user).subscribe({
+      next: (response) => {
+        alert(response.message);
+        this.router.navigate(['/login']);
 
-                  this.errorMessage = "Invalid Email!";
 
-              } else if (data.error.error.message=="EMAIL_EXISTS") {
+      },
+      error: (error) => {
+        console.error('Error during signup:', error);
+        alert(error.error?.message || 'Signup failed.');
+      },
+    });
+  }else{
 
-                  this.errorMessage = "Already Email Exists!";
+    alert('please fill required fields ');
+  }
 
-              }else{
-
-                  this.errorMessage = "Unknown error occured when creating this account!";
-              }
-          }
-      }).add(()=>{
-          this.loading =false;
-          console.log('Register process completed!');
-      })
   }
 
 }
