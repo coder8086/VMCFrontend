@@ -1,6 +1,5 @@
 <h3>Your Peer ID: {{ peerid }}</h3>
 
-
 <div class="controls" *ngIf="callActive">
   <button (click)="toggleMic()">
     {{ micOn ? 'Mute Mic' : 'Unmute Mic' }}
@@ -13,4 +12,4 @@
   <video id="remoteVideo" autoplay></video>
 </div>
 
-
+<button (click)="clearCall(peerid)">Cancel</button>

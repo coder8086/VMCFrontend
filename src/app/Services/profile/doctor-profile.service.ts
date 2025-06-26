@@ -20,4 +20,6 @@ export class DoctorProfileService {
 
     return this.http.post(this.baseUrl, userData, { headers: headers , responseType: 'json'});
   }
+
+  
 }

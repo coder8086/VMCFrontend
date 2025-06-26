@@ -3,15 +3,21 @@
     <h1>Get your doctor</h1>
     <img src="../../../assets/chooseDoctor.jpg" alt="image" width="100%" height="300" />
 </div>
-<div class="card-container">
-  <div class="appointment-card" *ngFor="let doctor of doctorList">
+<div class="container">
+  <h2>Video Calling List</h2>
 
-    <div (click)="startVideoCall()">
-      <img src="{{doctor.img }}" alt="img" />
-    <p>{{ doctor.name }}</p>
-    <p>{{doctor.speciality}}</p>
+  <div class="cards-wrapper">
+    <div *ngFor="let call of videoCallings" class="card">
+      <h4>{{call.id}}</h4>
+      <h3>{{ call.doctorName }}</h3>
+      <p><strong>Specialization:</strong> {{ call.specialization }}</p>
+      <p><strong>Experience:</strong> {{ call.experience }} years</p>
+  
+      <button (click)="startVideoCall(call.videoLink)">Video call now</button>
     </div>
-    
-  </div>
+  </div>
+
+  <p *ngIf="videoCallings.length === 0">No video calls available.</p>
 </div>
+
 <app-footer></app-footer>

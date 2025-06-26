@@ -17,7 +17,7 @@ export const routes: Routes = [
         path:'', component:LandingComponent
     },
     {
-        path:'caller', component:CallerComponent
+        path:'caller/:videoLink', component:CallerComponent
     },
     {
         path:'reciver', component:ReciverComponent

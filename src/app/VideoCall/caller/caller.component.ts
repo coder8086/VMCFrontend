@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { VideoCallService } from '../../Services/video-call.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-caller',
@@ -18,9 +19,14 @@ export class CallerComponent implements OnInit{
   micOn: boolean = true;
   private currentCall: any;
 
-  constructor(public peerService: VideoCallService) { }
+  constructor(public peerService: VideoCallService, private route:ActivatedRoute) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    const videoLink = this.route.snapshot.paramMap.get('videoLink');
+    if(videoLink){
+    this.remotePeerId = videoLink;
+    }
+  }
 
   callPeer() {
     this.peerService.getUserMedia().then(stream => {
