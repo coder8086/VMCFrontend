@@ -35,6 +35,7 @@ if(this.isLogin){
 
   this.router.navigate(['/login']);
 
+  localStorage.setItem('Role','PATIENT');
 }
 
   

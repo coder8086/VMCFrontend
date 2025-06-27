@@ -1,9 +1,15 @@
-
 <header class="navbar">
   <div class="container">
-    <div class="logo"><img class="logo" src="../../../assets/LandingImage/logo.JPG" alt="logo" width=50 height=50 />
+    <div class="logo">
+      <img src="../../../assets/LandingImage/logo.JPG" alt="logo" width="50" height="50" />
     </div>
-    <nav>
+
+    <!-- Toggle Button -->
+    <button class="menu-toggle" (click)="menuOpen = !menuOpen">
+      ☰
+    </button>
+
+    <nav [ngClass]="{ 'open': menuOpen }">
       <ul>
         <button class="contact-btn" (click)="goToPage()">For Doctors</button>
         <li><a href="#">About Us</a></li>
@@ -12,7 +18,9 @@
         <li><a href="#">Blog</a></li>
         <li><a href="#">Help</a></li>
         <li><a href="#">Contact us</a></li>
-         <button class="contact-btn" (click)='isLogin ? logout() : login()'>{{isLogin ? 'log out' : 'login'}}</button>
+        <button class="contact-btn" (click)="isLogin ? logout() : login()">
+          {{ isLogin ? 'log out' : 'login' }}
+        </button>
       </ul>
     </nav>
   </div>

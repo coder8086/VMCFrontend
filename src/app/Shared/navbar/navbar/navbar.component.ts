@@ -1,14 +1,18 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit {
+
+  menuOpen = false;
+
 
   isLogin: boolean = false;
 
@@ -36,6 +40,7 @@ ngOnInit(): void {
 
   logout(){
     localStorage.removeItem('token');
+    localStorage.removeItem('Role');
     alert("log out");
     this.isLogin = false;
     this.router.navigate(['/']);

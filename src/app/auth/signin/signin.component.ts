@@ -43,7 +43,7 @@ export class SigninComponent implements OnInit{
         next: (response) => {
           alert(response.message);
           this.router.navigate(['/login']);
-          localStorage.removeItem('Role');
+      
   
         },
         error: (error) => {

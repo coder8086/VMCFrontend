@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
 
-  private baseUrl = "http://localhost:8080/api"
+  private baseUrl = "https://1jnk6x2b-8080.inc1.devtunnels.ms/api"
 
   constructor(private http:HttpClient) {}
 

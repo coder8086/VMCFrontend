@@ -25,6 +25,7 @@ export class CallerComponent implements OnInit{
     const videoLink = this.route.snapshot.paramMap.get('videoLink');
     if(videoLink){
     this.remotePeerId = videoLink;
+    this.callPeer();
     }
   }
 

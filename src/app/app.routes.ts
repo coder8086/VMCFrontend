@@ -6,7 +6,6 @@ import { SelectSymptomsComponent } from './CreateVideoCall/select-symptoms/selec
 import { GetdoctorComponent } from './CreateVideoCall/getdoctor/getdoctor.component';
 import { DoctorDashboardComponent } from './Dashboards/Doctor/doctor-dashboard/doctor-dashboard.component';
 import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { routegardGuard } from './RouteGard/routegard.guard';
 import { DoctorLandingComponent } from './HomePage/doctor-landing/doctor-landing.component';
