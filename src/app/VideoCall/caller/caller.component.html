@@ -1,16 +1,19 @@
- <!--- <input [(ngModel)]="remotePeerId" placeholder="Enter Receiver ID" />  -->
-<!-- <button (click)="callPeer()" [disabled]="callActive">Call</button> -->
-
-<div class="controls" *ngIf="callActive">
+<!-- This is a patient page -->
+<div class="video-wrapper">
+ <div class="videoCall">
+   <video class="remoteVideo" id="remoteVideo" autoplay></video>
+   <div class="controls" *ngIf="callActive" >
   <button (click)="toggleMic()">
     {{ micOn ? 'Mute Mic' : 'Unmute Mic' }}
   </button>
   <button (click)="endCall()">End Call</button>
 </div>
-
-<div class="video-wrapper">
-  <video class="localVideo" id="localVideo" autoplay muted></video>
-  <video class="remoteVideo" id="remoteVideo" autoplay></video>
+ </div>
+ <div class="doctorDetails">
+  <h1>Doctor details</h1>
+ </div>
+ 
 </div>
+ <video class="localVideo" id="localVideo" autoplay muted></video>
 
 

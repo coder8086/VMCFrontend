@@ -1,15 +1,31 @@
+<!-- This is a Doctor page  my route is /reciver -->
 <h3>Your Peer ID: {{ peerid }}</h3>
+<button (click)="clearCall()">Cancel</button>
+<div class="video-wrapper">
+
+  <div class="prescriptionBox">
+    <h3>Make priscription</h3>
+  </div>
+
+  <div class="remoteVideoContainer">
+    <video id="remoteVideo" class="remoteVideo" autoplay></video>
+    <video id="localVideo" class="localVideo" autoplay muted></video>
+
+   
+
+
 
 <div class="controls" *ngIf="callActive">
-  <button (click)="toggleMic()">
-    {{ micOn ? 'Mute Mic' : 'Unmute Mic' }}
-  </button>
-  <button (click)="endCall()">End Call</button>
-</div>
+      <button (click)="toggleMic()">
+        {{ micOn ? 'Mute Mic' : 'Unmute Mic' }}
+      </button>
+      <button (click)="endCall()">End Call</button>
+   
+    </div>
 
-<div class="video-wrapper">
-  <video id="localVideo" autoplay muted></video>
-  <video id="remoteVideo" autoplay></video>
-</div>
+  </div>
 
-<button (click)="clearCall(peerid)">Cancel</button>
+  <div class="patientBox">
+    <h3>Patient details</h3>
+  </div>
+</div>

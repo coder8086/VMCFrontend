@@ -55,7 +55,7 @@ getUserMedia() {
 }
 
   createVideoCall(videoCallContainer:VideoCallContainer): Observable<any> {
-    return this.http.post(`${this.baseUrl}/setVideoLink`, videoCallContainer, { responseType: 'json' });
+    return this.http.post(`${this.baseUrl}/setVideoLink`, videoCallContainer, { headers: this.getAuthHeaders(), responseType: 'json' });
   }
 
     getAllVideoCallings(): Observable<VideoCallContainer[]> {
@@ -65,8 +65,8 @@ getUserMedia() {
   }
 
     // Delete video calling by ID with token
-  deleteVideoCalling(link: string) {
-    return this.http.delete(`${this.baseUrl}/deleteVideoCalling/${link}`, {
+  deleteVideoCalling(doctorId: number) {
+    return this.http.delete(`${this.baseUrl}/deleteVideoCalling/${doctorId}`, {
       headers: this.getAuthHeaders()
     });
   }

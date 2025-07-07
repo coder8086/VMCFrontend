@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { VideoCallContainer } from '../../Models/video-call-container';
 import { VideoCallService } from '../../Services/video-call.service';
+import { LiveUpdateService } from '../../Services/liveUpdate/live-update.service';
 
 @Component({
   selector: 'app-getdoctor',
@@ -17,10 +18,28 @@ export class GetdoctorComponent implements OnInit {
 
   videoCallings:VideoCallContainer[]=[];
 
-  constructor(private router: Router, private videoCallingService:VideoCallService){}
+  constructor(private router: Router, private videoCallingService:VideoCallService, private liveService:LiveUpdateService){}
 
   ngOnInit(): void {
-      this.fetchVideoCallings();
+
+    console.log('GetdoctorComponent initialized');
+
+      this.liveService.getLiveListUpdates().subscribe({
+        next: (data) => {
+          this.videoCallings = data;
+          console.log('Live updates received:');
+          console.log(data);
+          console.log('Live updates fetched successfully:',data);
+          // You can perform additional actions with the fetched data here
+        },
+        error: (err) => {
+          console.error('Error fetching live updates:');
+          console.error('Error fetching live updates:', err);  }
+  });
+
+ // this.fetchVideoCallings();
+      
+    
   }
 
   startVideoCall(link:string){

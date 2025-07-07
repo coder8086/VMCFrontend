@@ -32,6 +32,7 @@ export class ReciverComponent implements OnInit {
   videoCallContainer: VideoCallContainer = {
     id: 0,
     doctorName: '',
+    doctorId: 0,
     specialization: '',
     experience: '',
     videoLink: ''
@@ -105,6 +106,7 @@ export class ReciverComponent implements OnInit {
     }
 
     this.callActive = false;
+    
 
     const remote = document.getElementById('remoteVideo') as HTMLVideoElement;
     const local = document.getElementById('localVideo') as HTMLVideoElement;
@@ -146,14 +148,15 @@ export class ReciverComponent implements OnInit {
       next: (doctor) => {
         this.myDoctor = doctor;
         console.log("link id", doctor.id);
+        this.videoCallContainer.doctorId = doctor.id;
       }, error: (er) => {
 
       }
     });
   }
 
-  clearCall(link: string) {
-    this.delCall.deleteVideoCalling(link).subscribe(
+  clearCall() {
+    this.delCall.deleteVideoCalling(this.videoCallContainer.doctorId).subscribe(
       {
         next: (resp) => {
           console.log(resp);

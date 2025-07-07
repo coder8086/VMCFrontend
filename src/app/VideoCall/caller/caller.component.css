@@ -32,14 +32,24 @@ button[disabled] {
 .controls {
   text-align: center;
   margin: 10px 0;
+ 
 }
 
 .video-wrapper {
+  width: 100%;
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  justify-content:space-between;
+  gap: 5px;
   margin-top: 20px;
-  flex-wrap: wrap;
+
+}
+
+
+
+.doctorDetails{
+  width: 590px;
+  background-color: #ccc;
+  padding: 10px;
 }
 
 video {
@@ -52,8 +62,18 @@ video {
 
 .remoteVideo{
 
-  width: 500px;
-  height: 400px;
+  width: 700px;
+  height: 475px;
+ 
+}
 
+.localVideo{
+  width: 150px;
+  height: 100px;
+  z-index: 5;
+  position: absolute;
+  top:350px;
+  left: 500px;
+  border: 3px solid white;
 }
 

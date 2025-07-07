@@ -13,7 +13,10 @@ import { DoctorProfileComponent } from './ProfileForms/doctorProfile/doctor-prof
 
 export const routes: Routes = [
     {
-        path:'', component:LandingComponent
+        path:'', redirectTo: 'landing', pathMatch: 'full'
+    },
+    {
+      path:'landing', component:LandingComponent
     },
     {
         path:'caller/:videoLink', component:CallerComponent

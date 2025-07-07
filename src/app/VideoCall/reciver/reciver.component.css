@@ -1,11 +1,54 @@
 .video-wrapper {
+  width: 100%;
+  height: 475px;
   display: flex;
-  gap: 1rem;
+  justify-content: space-between;
+  gap:20px;
   margin-top: 20px;
+
+
 }
 video {
   width: 300px;
   height: 200px;
   background-color: black;
   border: 1px solid #ccc;
+}
+
+.remoteVideo{
+  width: 100%;
+  height: 375px;
+
+}
+
+.remoteVideoContainer{
+  flex: 45%;
+  
+}
+
+.localVideo{
+  width: 150px;
+  height: 100px;
+  z-index: 5;
+  border: 2px solid white;
+  position:relative;
+  top:-125px;
+  left: 432px;
+}
+
+.controls{
+  position: relative;
+  top: -70px;
+  display: flex;
+  justify-content: center;
+}
+
+.prescriptionBox{
+  flex: 20%;
+  background-color: #ccc;
+}
+
+.patientBox{
+  flex: 20%;
+  background-color: #ccc;
 }

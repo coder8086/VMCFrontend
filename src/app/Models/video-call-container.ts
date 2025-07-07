@@ -4,6 +4,8 @@ export class VideoCallContainer {
     
     doctorName!:string;
 
+    doctorId!:number;
+
     specialization!:string;
 
     experience!:string;
