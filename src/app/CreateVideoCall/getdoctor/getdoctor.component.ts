@@ -37,7 +37,7 @@ export class GetdoctorComponent implements OnInit {
           console.error('Error fetching live updates:', err);  }
   });
 
- // this.fetchVideoCallings();
+  this.fetchVideoCallings();
       
     
   }
