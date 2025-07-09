@@ -65,7 +65,8 @@ export class LoginComponent{
         break;
         
         case "PATIENT":
-          this.router.navigate(['']);
+            this.router.navigate(['/landing']);
+        
         break;
         
         default:

@@ -1,0 +1,24 @@
+<form [formGroup]="patientForm" (ngSubmit)="onSubmit()">
+  <label>First Name: <input formControlName="firstName"></label><br>
+  <label>Last Name: <input formControlName="lastName"></label><br>
+  <label>Phone: <input formControlName="phone" type="tel"></label><br>
+  <label>DOB: <input formControlName="dob" type="date"></label><br>
+  <label>Gender:
+    <select formControlName="gender">
+      <option value="">Select</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+  </label><br>
+  <label>Blood Group:
+    <select formControlName="bloodGroup">
+      <option value="">Select</option>
+      <option *ngFor="let bg of ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']" [value]="bg">{{ bg }}</option>
+    </select>
+  </label><br>
+  <label>City & State: <input formControlName="cityState"></label><br>
+  <label>Emergency Contact: <input formControlName="emergencyContact" type="tel"></label><br>
+  <label>Address: <textarea formControlName="address"></textarea></label><br>
+  <button type="submit" [disabled]="!patientForm.valid">Submit</button>
+</form>

@@ -64,6 +64,11 @@ getUserMedia() {
     return this.http.get<VideoCallContainer[]>(`${this.baseUrl}/getAllVideoCallings`, { headers :this.getAuthHeaders() });
   }
 
+  // Get doctor by video link
+  getDoctorByLink(videoLink: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/getDoctorByLink/${videoLink}`,{headers: this.getAuthHeaders()});
+  }
+
     // Delete video calling by ID with token
   deleteVideoCalling(doctorId: number) {
     return this.http.delete(`${this.baseUrl}/deleteVideoCalling/${doctorId}`, {

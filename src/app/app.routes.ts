@@ -44,5 +44,8 @@ export const routes: Routes = [
   },
   {
     path: 'doctorProfile', component:DoctorProfileComponent
+  },
+  {
+    path: 'patientProfile', loadComponent: () => import('./ProfileForms/patientProfile/patient-profile/patient-profile.component').then(m => m.PatientProfileComponent), canActivate:[routegardGuard]
   }
 ];

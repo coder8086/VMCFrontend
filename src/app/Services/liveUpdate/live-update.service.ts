@@ -1,33 +1,31 @@
 // live-update.service.ts
-import { Injectable, NgZone } from '@angular/core';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable} from '@angular/core';
+import { interval, Observable, switchMap } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class LiveUpdateService {
 
-  constructor(private zone: NgZone) {}
+  private baseUrl = "http://localhost:8080/api";
 
-  getLiveListUpdates(): Observable<any> {
-    return new Observable(observer => {
-      const eventSource = new EventSource('http://localhost:8080/api/stream', { withCredentials: true });
+  constructor(private http: HttpClient){}
 
-      eventSource.onmessage = (event) => {
-        this.zone.run(() => {
-          const data = JSON.parse(event.data);
-          observer.next(data);
-        });
-      };
+     // Helper to build headers with token
+    private getAuthHeaders(): HttpHeaders {
+      const token = localStorage.getItem('token');
+      return new HttpHeaders({
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      });
+    }
 
-      eventSource.onerror = (error) => {
-        this.zone.run(() => {
-          observer.error(error);
-        });
-        eventSource.close();
-      };
-
-      return () => eventSource.close();
-    });
+  startPolling(intervalTime: number):Observable<any>{
+    return interval(intervalTime).pipe(
+      switchMap(()=>this.http.get(`${this.baseUrl}/getAllVideoCallings`,{headers:this.getAuthHeaders(), responseType: 'json'}))
+    );
   }
+ 
 }

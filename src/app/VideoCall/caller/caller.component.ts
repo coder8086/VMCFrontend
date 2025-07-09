@@ -3,6 +3,7 @@ import { VideoCallService } from '../../Services/video-call.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { VideoCallContainer } from '../../Models/video-call-container';
 
 @Component({
   selector: 'app-caller',
@@ -12,6 +13,15 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './caller.component.css'
 })
 export class CallerComponent implements OnInit{
+
+  doctorData:VideoCallContainer={
+    id: 0,
+    doctorName: '',
+    doctorId: 0,
+    specialization: '',
+    experience: '',
+    videoLink: '',  
+  }
   remotePeerId: string='';
   localStream!: MediaStream;
 
@@ -25,8 +35,22 @@ export class CallerComponent implements OnInit{
     const videoLink = this.route.snapshot.paramMap.get('videoLink');
     if(videoLink){
     this.remotePeerId = videoLink;
+    this.fetchDoctorByLink();
     this.callPeer();
     }
+  }
+
+   fetchDoctorByLink() {
+    this.peerService.getDoctorByLink(this.remotePeerId).subscribe({
+      next: (data) => {
+        this.doctorData = data;
+     
+      },
+      error: (err) => {
+        console.error('Error fetching doctor data:', err);
+      
+      }
+    });
   }
 
   callPeer() {
